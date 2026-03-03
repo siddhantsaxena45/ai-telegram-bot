@@ -3,12 +3,12 @@ import os
 import json
 from dotenv import load_dotenv
 
-# Load our secret passwords
+
 load_dotenv()
 
 def scrape_website(url):
     print(f"Scraping {url}...")
-    # Add Jina API to the front of our URL
+   
     jina_url = f"https://r.jina.ai/{url}"
     response = requests.get(jina_url)
     return response.text
@@ -59,16 +59,15 @@ def send_telegram_message(message):
     requests.post(url, json=payload)
 
 if __name__ == "__main__":
-    # Let's scrape Hacker News today
+    
     target_url = "https://news.ycombinator.com/"
     
-    # 1. Scrape
+
     raw_content = scrape_website(target_url)
     
-    # 2. Summarize
     ai_summary = summarize_text(raw_content)
     
-    # 3. Send
+    
     send_telegram_message(f"🚀 *Daily Tech Update*\n\n{ai_summary}")
     
     print("Task Complete!")
