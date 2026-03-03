@@ -2,7 +2,7 @@ name: Daily AI News Bot
 
 on:
   schedule:
-    - cron: '* * * * *'   
+    - cron: '*/5 * * * *'   
   workflow_dispatch:
 
 jobs:
